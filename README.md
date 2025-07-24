@@ -4,7 +4,8 @@ A simple yet powerful single-page web application designed to streamline the job
 
 It's built with vanilla HTML, CSS, and JavaScript, focusing on usability, performance, and a clean user interface.
 
-**Live Site:** [[Check it out here]](https://jobs.maffyxprojects.com/)
+<!-- Add a link to your live demo here -->
+**Live Demo:** [Link to your live site]
 
 ## Features
 
@@ -68,6 +69,10 @@ That's it! You can now use the application locally and make any changes you see 
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute.
 
 If you'd like to add a new ATS, you can do so by modifying the `atsSites` array in `script.js`. Please ensure the Google dork (`site:*.example.com`) is accurate.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 

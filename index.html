@@ -40,10 +40,18 @@
             <p>Enter keywords, location, and work type to generate direct Google search links for a curated list of popular Applicant Tracking Systems. Note that this list is not exhaustive and results are not guaranteed.</p>
         </header>
 
+        <!-- A section explaining the purpose of the tool and what an ATS is. -->
+        <section class="info-section">
+            <h3>Why Use This Tool?</h3>
+            <p>
+                Most companies use an <strong>Applicant Tracking System (ATS)</strong> to manage their job postings and applications. Instead of getting lost in the noise of large job boards, this tool helps you search for roles directly on company career pages hosted by these systems (like Greenhouse, Lever, Ashby, etc.). This can uncover opportunities that are less visible, giving you a more direct path to apply.
+            </p>
+        </section>
+
         <!-- A group for the primary user inputs: keywords and location -->
         <div class="input-group">
-            <input type="text" id="keywords" placeholder="Keywords (e.g., Software Engineer, Python)">
-            <input type="text" id="location" placeholder="Location (e.g., London, USA)">
+            <input type="text" id="keywords" placeholder="Keywords (e.g., Software Engineer)">
+            <input type="text" id="location" placeholder="Location (e.g., Chicago, USA)">
         </div>
 
         <!-- A group for region-specific search options -->
@@ -76,6 +84,9 @@
             <button id="searchAllBtn" class="ats-button search-all-button">Search All ATS</button>
             <button id="clearBtn" class="ats-button clear-button">Clear Fields</button>
         </div>
+
+        <!-- A warning about the "Search All" functionality -->
+        <p class="search-all-warning">Note: "Search All" opens many tabs and may be blocked by your browser. Searching individual sites is recommended.</p>
 
         <!-- This container will be populated with individual ATS search buttons by JavaScript -->
         <div id="ats-buttons-container">

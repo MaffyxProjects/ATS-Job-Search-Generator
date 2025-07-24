@@ -108,6 +108,35 @@ header p {
     transition: color 0.3s;
 }
 
+/* Explanation section about the tool's purpose. */
+.info-section {
+    background-color: var(--radio-bg); /* Use a subtle, existing background color */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: left;
+    border: 1px solid var(--border-light);
+}
+
+.info-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-size: 18px;
+}
+
+.info-section p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.info-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
 /* Flex container for the keyword and location input fields. */
 .input-group {
     display: flex;
@@ -141,6 +170,18 @@ input[type="text"]:focus {
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-light);
+}
+
+/* Warning text displayed below the "Search All" button. */
+.search-all-warning {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: -10px; /* Pulls the text closer to the buttons above. */
+    margin-bottom: 25px;
+    max-width: 450px; /* Constrains width for better readability. */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
 }
 
 /* Specific colors for master control buttons. */
