@@ -69,10 +69,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 If you'd like to add a new ATS, you can do so by modifying the `atsSites` array in `script.js`. Please ensure the Google dork (`site:*.example.com`) is accurate.
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ---
 
 *This README was generated based on the project's source code.*
