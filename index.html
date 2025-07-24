@@ -1,0 +1,129 @@
+<!-- The DOCTYPE declaration defines the document type to be HTML5 -->
+<!DOCTYPE html>
+<!-- The lang attribute specifies the language of the document's content -->
+<html lang="en">
+<head>
+    <!-- The charset attribute specifies the character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- The viewport meta tag controls the page's dimensions and scaling for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title of the page, which is shown in the browser's title bar or a page's tab -->
+    <title>ATS Job Search Generator</title>
+    <!-- Link to the favicon for the website -->
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <!-- Link to the external CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Analytics tracking script (gtag.js) for website analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X0P9WV7CT" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8X0P9WV7CT');
+    </script>
+    <!-- A note indicating that the theme (light/dark mode) is handled by the JavaScript file to prevent a flash of the unstyled content (FOUC). -->
+</head>
+<body>
+    <!-- Main container for all visible content -->
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <!-- The main heading of the application -->
+                <h1>ATS Job Search Generator</h1>
+                <!-- Button to toggle between light and dark themes -->
+                <button id="darkModeToggle" title="Toggle theme">
+                    <span class="icon-moon">Dark Mode</span>
+                    <span class="icon-sun">Light Mode</span>
+                </button>
+            </div>
+            <!-- A descriptive paragraph explaining the purpose and limitations of the tool -->
+            <p>Enter keywords, location, and work type to generate direct Google search links for a curated list of popular Applicant Tracking Systems. Note that this list is not exhaustive and results are not guaranteed.</p>
+        </header>
+
+        <!-- A group for the primary user inputs: keywords and location -->
+        <div class="input-group">
+            <input type="text" id="keywords" placeholder="Keywords (e.g., Software Engineer, Python)">
+            <input type="text" id="location" placeholder="Location (e.g., London, USA)">
+        </div>
+
+        <!-- A group for region-specific search options -->
+        <div class="options-group">
+            <label class="option-label">Region:</label>
+            <!-- This container will be populated with region buttons by JavaScript -->
+            <div id="geo-buttons-container" class="button-pills-group">
+                <!-- Geo buttons will be generated here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- A group for selecting the type of work -->
+        <div class="options-group">
+            <label class="option-label">Work Type:</label>
+            <!-- Radio buttons for work type selection. The 'name' attribute ensures only one can be selected at a time. -->
+            <div class="radio-group" id="workType">
+                <input type="radio" id="any" name="workType" value="" checked>
+                <label for="any">Any</label>
+                <input type="radio" id="remote" name="workType" value="Remote">
+                <label for="remote">Remote</label>
+                <input type="radio" id="hybrid" name="workType" value="Hybrid">
+                <label for="hybrid">Hybrid</label>
+                <input type="radio" id="on-site" name="workType" value="On-Site">
+                <label for="on-site">On-Site</label>
+            </div>
+        </div>
+
+        <!-- A container for master control buttons like "Search All" and "Clear" -->
+        <div class="master-controls">
+            <button id="searchAllBtn" class="ats-button search-all-button">Search All ATS</button>
+            <button id="clearBtn" class="ats-button clear-button">Clear Fields</button>
+        </div>
+
+        <!-- This container will be populated with individual ATS search buttons by JavaScript -->
+        <div id="ats-buttons-container">
+            <!-- Buttons will be generated here by JavaScript -->
+        </div>
+
+        <!-- A section for contact information and a contact form -->
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <p>I'm always open to feedback, suggestions, and collaboration. Let me know how I can improve or what you'd like to see!</p>
+            <!-- The contact form, which submits data to web3forms.com -->
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Hidden input field containing the access key for the form submission service -->
+                <input type="hidden" name="access_key" value="62199166-beee-4758-9ada-96fa40e61afd">
+                <!-- Group for the name input field -->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <!-- Group for the email input field -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <!-- Group for the message textarea -->
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <!-- A honeypot field for spam prevention. It's hidden from users but visible to bots. -->
+                <input type="checkbox" name="botcheck" id="bot-check" style="display:none !important;" tabindex="-1" autocomplete="off">
+                <button type="submit" class="button">Send Message</button>
+                <!-- This div will display the status of the form submission (e.g., success or error message) -->
+                <div id="form-status"></div>
+            </form>
+        </section>
+
+        <!-- Footer section with a link to the main website -->
+        <footer class="site-footer">
+            <p>
+                Visit my main portfolio at 
+                <a href="https://maffyxprojects.com/" target="_blank" rel="noopener noreferrer">maffyxprojects.com</a>.
+            </p>
+        </footer>
+</div>
+
+    <!-- The main JavaScript file that contains the application's logic. It's placed at the end of the body to ensure the DOM is fully loaded before the script runs. -->
+    <script src="script.js"></script>
+
+</body>
+</html>

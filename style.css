@@ -1,0 +1,458 @@
+/* Defines CSS Custom Properties (variables) for the default (light) theme. */
+:root {
+    /* Color Palette */
+    --bg-color: #f4f7f6;
+    --container-bg: #ffffff;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-tertiary: #495057;
+    --header-color: #0056b3;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --success-bg: #d4edda;
+    --success-text: #155724;
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --border-color: #ccc;
+    /* Sizing and Shadows */
+    --border-light: #eee;
+    --input-focus-border: #0056b3;
+    --input-focus-shadow: rgba(0, 86, 179, 0.1);
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --radio-bg: #e9ecef;
+    --radio-checked-bg: #ffffff;
+    --radio-checked-text: #0056b3;
+    --radio-checked-shadow: rgba(0,0,0,0.1);
+    --contact-bg: #f9f9f9;
+    --toggle-border: #ccc;
+    --toggle-hover-bg: #f0f0f0;
+}
+
+/* Overrides the custom properties when the dark theme is active (html[data-theme='dark']). */
+html[data-theme='dark'] {
+    /* Dark Theme Color Palette */
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-tertiary: #b0b0b0;
+    --header-color: #64b5f6;
+    --accent-color: #42a5f5;
+    --accent-hover: #64b5f6;
+    --success-bg: #1e4620;
+    --success-text: #c6f6d5;
+    --error-bg: #5f2120;
+    --error-text: #fed7d7;
+    --border-color: #444;
+    --border-light: #333;
+    --input-focus-border: #64b5f6;
+    --input-focus-shadow: rgba(100, 181, 246, 0.2);
+    --container-shadow: rgba(0, 0, 0, 0.4);
+    --radio-bg: #333;
+    --radio-checked-bg: #42a5f5;
+    --radio-checked-text: #121212;
+    --radio-checked-shadow: rgba(0,0,0,0.3);
+    --contact-bg: #2a2a2a;
+    --toggle-border: #666;
+    --toggle-hover-bg: #333;
+}
+
+/* Basic body styling and layout setup. */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme changes. */
+}
+
+/* The main content container for the application. */
+.container {
+    background-color: var(--container-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px var(--container-shadow);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s;
+}
+
+/* Flex container for the H1 and theme toggle button. */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Header text styles. */
+header h1 {
+    color: var(--header-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: color 0.3s;
+}
+
+header p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    transition: color 0.3s;
+}
+
+/* Flex container for the keyword and location input fields. */
+.input-group {
+    display: flex;
+    gap: 15px;
+}
+
+/* General styling for text input fields. */
+input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+}
+
+/* Style for text inputs when they are focused (clicked into). */
+input[type="text"]:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px var(--input-focus-shadow);
+    outline: none;
+}
+
+.master-controls {
+    /* Container for "Search All" and "Clear" buttons. */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Specific colors for master control buttons. */
+.search-all-button {
+    background-color: #28a745; /* Green */
+}
+
+.clear-button {
+    background-color: #6c757d; /* Gray */
+}
+
+.clear-button:hover {
+    background-color: #5a6268;
+}
+
+/* Grid layout for the dynamically generated ATS search buttons. */
+#ats-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns. */
+    gap: 15px;
+}
+
+/* Base style for all primary action buttons. */
+.ats-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    text-transform: capitalize;
+}
+
+.ats-button:hover {
+    background-color: var(--accent-hover); /* Default hover */
+}
+
+.search-all-button:hover {
+    background-color: #218838;
+}
+
+/* Styles for option groups like Region and Work Type. */
+.options-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.option-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* Container for the custom radio buttons. */
+.radio-group {
+    display: flex;
+    background-color: var(--radio-bg);
+    border-radius: 8px;
+    padding: 4px;
+    transition: background-color 0.3s;
+}
+
+.radio-group input[type="radio"] {
+    display: none; /* Hide the default radio button */
+}
+
+/* Style for the labels that act as custom radio buttons. */
+.radio-group label {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+}
+
+/* Style for the selected radio button's label. */
+.radio-group input[type="radio"]:checked + label {
+    background-color: var(--radio-checked-bg);
+    color: var(--radio-checked-text);
+    box-shadow: 0 2px 4px var(--radio-checked-shadow);
+}
+
+/* Styles for the pill-shaped buttons used for geo-locations. */
+.button-pills-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    flex-grow: 1; /* Allow it to take available space */
+}
+
+/* Individual pill button style. */
+.pill-button {
+    background-color: var(--radio-bg);
+    color: var(--text-tertiary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pill-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Contact Section Styles */
+/* Container for the contact form. */
+.contact-section {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: var(--contact-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--container-shadow);
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.contact-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    text-align: center; /* Center the heading */
+}
+
+.contact-section p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-align: center; /* Center the paragraph */
+}
+
+/* Styling for form groups to provide spacing. */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+/* Input and textarea styles specific to the contact form. */
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+    box-sizing: border-box; /* Important for padding not to affect width */
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+}
+
+/* Focus styles for contact form inputs. */
+.contact-section input[type="text"]:focus,
+.contact-section input[type="email"]:focus,
+.contact-section textarea:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px var(--input-focus-shadow);
+    outline: none;
+}
+
+.contact-section textarea {
+    resize: vertical;
+}
+
+/* Submit button for the contact form. */
+.contact-section .button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-section .button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Container for displaying form submission status (success/error). */
+#form-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    display: none; /* Initially hidden */
+}
+
+/* Style for a successful submission message. */
+#form-status.success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid var(--success-text);
+}
+
+/* Style for an error message. */
+#form-status.error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-text);
+}
+
+/* Site Footer Styles */
+.site-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.site-footer a {
+    color: var(--accent-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+/* Styling for the dark mode toggle button. */
+#darkModeToggle {
+    background: none;
+    border: 1px solid var(--toggle-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    padding: 8px 16px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 110px; /* Prevent layout shift on text change */
+    text-align: center;
+}
+
+#darkModeToggle:hover {
+    background-color: var(--toggle-hover-bg);
+    color: var(--text-primary);
+}
+
+/* Hide the sun icon by default (when in light mode). */
+#darkModeToggle .icon-sun {
+    display: none;
+}
+
+/* In dark mode, hide the moon icon... */
+html[data-theme='dark'] #darkModeToggle .icon-moon {
+    display: none;
+}
+
+/* ...and show the sun icon. */
+html[data-theme='dark'] #darkModeToggle .icon-sun {
+    display: block;
+}
+
+/* ==========================================================================
+   Responsive Media Queries
+   ========================================================================== */
+
+/* Styles that apply only on screens 600px wide or smaller. */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+        /* Align to top on mobile to prevent layout shifts with virtual keyboard */
+        align-items: flex-start;
+    }
+
+    /* Reduce padding on smaller screens. */
+    .container,
+    .contact-section {
+        padding: 20px;
+    }
+
+    /* Stack the option groups vertically instead of horizontally. */
+    .options-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Allow radio buttons to wrap onto multiple lines if needed. */
+    .radio-group {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
