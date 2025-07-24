@@ -4,7 +4,7 @@ A simple yet powerful single-page web application designed to streamline the job
 
 It's built with vanilla HTML, CSS, and JavaScript, focusing on usability, performance, and a clean user interface.
 
-**Live Demo:** [[Check it out here]](https://jobs.maffyxprojects.com/)
+**Live Site:** [[Check it out here]](https://jobs.maffyxprojects.com/)
 
 ## Features
 
