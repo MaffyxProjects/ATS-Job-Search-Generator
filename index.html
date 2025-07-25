@@ -79,6 +79,26 @@
             </div>
         </div>
 
+        <!-- A group for selecting the date posted filter -->
+        <div class="options-group">
+            <label class="option-label">Date Posted:</label>
+            <!-- Radio buttons for date posted selection -->
+            <div class="radio-group" id="datePosted">
+                <input type="radio" id="any-time" name="datePosted" value="" checked>
+                <label for="any-time">Any Time</label>
+                <input type="radio" id="past-hour" name="datePosted" value="h">
+                <label for="past-hour">Past Hour</label>
+                <input type="radio" id="past-day" name="datePosted" value="d">
+                <label for="past-day">Past 24h</label>
+                <input type="radio" id="past-week" name="datePosted" value="w">
+                <label for="past-week">Past Week</label>
+                <input type="radio" id="past-month" name="datePosted" value="m">
+                <label for="past-month">Past Month</label>
+                <input type="radio" id="past-year" name="datePosted" value="y">
+                <label for="past-year">Past Year</label>
+            </div>
+        </div>
+
         <!-- A container for master control buttons like "Search All" and "Clear" -->
         <div class="master-controls">
             <button id="searchAllBtn" class="ats-button search-all-button">Search All ATS</button>

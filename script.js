@@ -179,6 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     workTypeRadio.checked = true;
                 }
             }
+            // Check the correct radio button for date posted
+            if (criteria.datePosted) {
+                const datePostedRadio = document.querySelector(`input[name="datePosted"][value="${criteria.datePosted}"]`);
+                if (datePostedRadio) {
+                    datePostedRadio.checked = true;
+                }
+            }
         }
     }
 
@@ -188,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         keywordsInput.value = '';
         locationInput.value = '';
         document.getElementById('any').checked = true; // Reset to default
+        document.getElementById('any-time').checked = true; // Reset to default
     }
     
     // Core function to handle a single search request (from an ATS button).
@@ -198,7 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
             keywords: keywordsInput.value.trim(),
             location: locationInput.value.trim(),
             // Use optional chaining `?` for safety in case no radio is checked
-            workType: document.querySelector('input[name="workType"]:checked')?.value || ''
+            workType: document.querySelector('input[name="workType"]:checked')?.value || '',
+            datePosted: document.querySelector('input[name="datePosted"]:checked')?.value || ''
         };
         // Validate that keywords have been entered.
         if (!criteria.keywords) {
@@ -251,7 +260,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Combine all parts, clean up extra spaces, and encode for a URL.
         const query = `${siteSearch} ${keywordsQuery} ${workTypeQuery} ${locationQuery}`.replace(/\s+/g, ' ').trim();
-        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        let googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+
+        // Append the time filter parameter if a value is selected
+        if (criteria.datePosted) {
+            googleSearchUrl += `&tbs=qdr:${criteria.datePosted}`;
+        }
         
         // Open the generated search URL in a new browser tab.
         window.open(googleSearchUrl, '_blank');
